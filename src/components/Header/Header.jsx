@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Autocomplete } from "@react-google-maps/api";
 import {
   alpha,
@@ -10,8 +11,18 @@ import {
 } from "@mui/material";
 import { SearchRounded } from "@mui/icons-material";
 
-function Header() {
+function Header({ setCoordinates }) {
   const theme = useTheme();
+  const [autocomplete, setAutocomplete] = useState(null);
+
+  const onLoad = (autoC) => setAutocomplete(autoC);
+
+  const onPlaceChanged = () => {
+    const lat = autocomplete.getPlace().geometry.location.lat();
+    const lng = autocomplete.getPlace().geometry.location.lng();
+
+    setCoordinates({ lat, lng });
+  };
 
   return (
     <AppBar position="static">
@@ -44,50 +55,49 @@ function Header() {
           >
             Explore new places
           </Typography>
-          {/* <Autocomplete> */}
-          <Box
-            sx={{
-              position: "relative",
-              borderRadius: theme.shape.borderRadius,
-              backgroundColor: alpha(theme.palette.common.white, 0.15),
-              "&:hover": {
-                backgroundColor: alpha(theme.palette.common.white, 0.25),
-              },
-              marginRight: theme.spacing(2),
-              marginLeft: 0,
-              width: "100%",
-              [theme.breakpoints.up("sm")]: {
-                marginLeft: theme.spacing(3),
-                width: "auto",
-              },
-            }}
-          >
+          <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
             <Box
               sx={{
-                padding: theme.spacing(0, 2),
-                height: "100%",
-                position: "absolute",
-                pointerEvents: "none",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                position: "relative",
+                backgroundColor: alpha(theme.palette.common.white, 0.15),
+                "&:hover": {
+                  backgroundColor: alpha(theme.palette.common.white, 0.25),
+                },
+                marginRight: theme.spacing(2),
+                marginLeft: 0,
+                width: "100%",
+                [theme.breakpoints.up("sm")]: {
+                  marginLeft: theme.spacing(3),
+                  width: "auto",
+                },
               }}
             >
-              <SearchRounded />
+              <Box
+                sx={{
+                  padding: theme.spacing(0, 1),
+                  height: "100%",
+                  position: "absolute",
+                  pointerEvents: "none",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <SearchRounded />
+              </Box>
+              <InputBase
+                placeholder="Search..."
+                sx={{
+                  color: "inherit",
+                  padding: theme.spacing(0, 1, 0, 0),
+                  paddingLeft: `calc(1em + ${theme.spacing(3)})`,
+                  transition: theme.transitions.create("width"),
+                  width: "100%",
+                  [theme.breakpoints.up("md")]: { width: "20ch" },
+                }}
+              />
             </Box>
-            <InputBase
-              placeholder="Search..."
-              sx={{
-                color: "inherit",
-                padding: theme.spacing(0, 1, 0, 0),
-                paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-                transition: theme.transitions.create("width"),
-                width: "100%",
-                [theme.breakpoints.up("md")]: { width: "20ch" },
-              }}
-            />
-          </Box>
-          {/* </Autocomplete> */}
+          </Autocomplete>
         </Box>
       </Toolbar>
     </AppBar>
