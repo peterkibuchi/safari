@@ -123,7 +123,7 @@ function List({
               <Grid item xs={12}>
                 <Alert severity="error">
                   <AlertTitle>Error</AlertTitle>
-                  Unable to retrieve data: <strong>API quota reached!</strong>
+                  Unable to retrieve data: <strong>API quota depleted!</strong>
                 </Alert>
               </Grid>
             )}
