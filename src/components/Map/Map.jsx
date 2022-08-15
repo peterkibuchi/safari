@@ -15,6 +15,8 @@ function Map({
 
   return (
     <Box
+      my={3}
+      mx={1}
       sx={{
         height: "85vh",
         width: "100%",
@@ -22,10 +24,10 @@ function Map({
     >
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
-        defaultCenter={coordinates}
+        defaultCenter={{ lat: 0, lng: 0 }}
         center={coordinates}
         defaultZoom={14}
-        margin={[50, 50, 50, 50]}
+        // margin={[50, 50, 50, 50]}
         options={{
           disableDefaultUI: true,
           zoomControl: true,
@@ -90,6 +92,7 @@ function Map({
         {weatherData?.data?.map((item, index) => (
           <Box key={index} lat={item.lat} lng={item.lon}>
             <img
+              alt=""
               src={`https://www.weatherbit.io/static/img/icons/${item.weather.icon}.png`}
               style={{ maxWidth: "50px" }}
             />

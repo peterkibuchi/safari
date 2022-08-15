@@ -27,9 +27,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const filteredPlaces = places.filter((place) => place.rating > rating);
+    const filtered = places?.filter((place) => Number(place.rating) > rating);
 
-    setFilteredPlaces(filteredPlaces);
+    setFilteredPlaces(filtered);
   }, [rating]);
 
   useEffect(() => {
@@ -37,13 +37,13 @@ function App() {
       setIsLoading(true);
 
       getWeatherData(coordinates.lat, coordinates.lng).then((data) => {
-        console.log(data.data[0].lat);
         setWeatherData(data);
       });
 
       getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
         setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
         setFilteredPlaces([]);
+        setRating(0);
         setIsLoading(false);
       });
     }
@@ -56,7 +56,7 @@ function App() {
       <Grid container spacing={3} style={{ width: "100%" }}>
         <Grid item xs={12} md={4}>
           <List
-            places={filteredPlaces.length ? filteredPlaces : places}
+            places={filteredPlaces?.length ? filteredPlaces : places}
             isLoading={isLoading}
             type={type}
             setType={setType}
@@ -70,7 +70,7 @@ function App() {
             coordinates={coordinates}
             setCoordinates={setCoordinates}
             setBounds={setBounds}
-            places={filteredPlaces.length ? filteredPlaces : places}
+            places={filteredPlaces?.length ? filteredPlaces : places}
             setChildClicked={setChildClicked}
             weatherData={weatherData}
           />
