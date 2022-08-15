@@ -1,5 +1,7 @@
 import { createRef, useEffect, useState } from "react";
 import {
+  Alert,
+  AlertTitle,
   Box,
   CircularProgress,
   FormControl,
@@ -38,7 +40,7 @@ function List({
         padding: "25px",
       }}
     >
-      <Typography variant="h5">
+      <Typography variant="h5" mb={2}>
         Restaurants, Hotels & Attractions around you
       </Typography>
 
@@ -58,6 +60,7 @@ function List({
           <FormControl
             sx={{
               margin: theme.spacing(1),
+              marginLeft: 0,
               minWidth: 120,
               marginBottom: "30px",
             }}
@@ -106,15 +109,24 @@ function List({
               overflow: "auto",
             }}
           >
-            {places?.map((place, index) => (
-              <Grid item key={index} xs={12}>
-                <PlaceDetails
-                  place={place}
-                  selected={Number(childClicked) === index}
-                  redProp={elRefs[index]}
-                />
+            {places ? (
+              places?.map((place, index) => (
+                <Grid item key={index} xs={12}>
+                  <PlaceDetails
+                    place={place}
+                    selected={Number(childClicked) === index}
+                    redProp={elRefs[index]}
+                  />
+                </Grid>
+              ))
+            ) : (
+              <Grid item xs={12}>
+                <Alert severity="error">
+                  <AlertTitle>Error</AlertTitle>
+                  Unable to retrieve data: <strong>API quota reached!</strong>
+                </Alert>
               </Grid>
-            ))}
+            )}
           </Grid>
         </>
       )}
