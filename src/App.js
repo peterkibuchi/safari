@@ -30,7 +30,7 @@ function App() {
     const filtered = places?.filter((place) => Number(place.rating) > rating);
 
     setFilteredPlaces(filtered);
-  }, [rating]);
+  }, [places, rating]);
 
   useEffect(() => {
     if (bounds.sw && bounds.ne) {
@@ -47,7 +47,7 @@ function App() {
         setIsLoading(false);
       });
     }
-  }, [type, bounds]);
+  }, [coordinates.lat, coordinates.lng, type, bounds]);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import GoogleMapReact from "google-map-react";
 import { Box, Paper, Rating, Typography, useMediaQuery } from "@mui/material";
 import { LocationOnOutlined } from "@mui/icons-material";
-import mapStyles from "./mapStyles";
+// import mapStyles from "./mapStyles";
 
 function Map({
   coordinates,
