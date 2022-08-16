@@ -1,38 +1,44 @@
-# Travel Advisor
-> Outline a brief description of your project.
-> Live demo [_here_](https://peterkibuchi.github.io/.../).
+# Safari
+
+> An advanced travel companion app that helps users discover Restaurants, Hotels & Attractions around them, complete with Geolocation, Travel Advisor, Weather, Google Maps & Places APIs.
+> Live demo [_here_](https://safari-advisor.netlify.app/).
 
 ## Table of Contents
-* [General Info](#general-information)
-* [Technologies Used](#technologies-used)
-* [Project Status](#project-status)
-* [Acknowledgements](#acknowledgements)
-* [Contact](#contact)
 
+- [General Info](#general-information)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Project Status](#project-status)
+- [Acknowledgements](#acknowledgements)
+- [Contact](#contact)
 
 ## General Information
-- Provide general information about your project here.
-- What is the purpose of your project? Why did you undertake it?
-- What problem does it (intend to) solve?
-- What did you learn from it?
 
+- I undertook this project as a hands-on means of learning how to build complex real world applications.
+- I learnt a lot, including but not limited to: advanced React best practices such as folder & file structure, hooks & refs; how to integrate various APIs to build an app with various functionalities; and how to build beautiful modern UIs with Material UI.
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
 
+- React
+- Material UI
+- Travel Advisor, Weather, Google Maps & Places APIs
+
+## Features
+
+- Discover Restaurants, Hotels & Attractions around you.
+- Sort & filter through the returned results.
+- Get weather information on the places you're exploring in real time,
+- Search for places, powered by the Google Places API.
+- Fully interactive map, powered by the Google Maps API.
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
 
+Project is: _complete_.
 
 ## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
 
+- This project was based on [this tutorial](https://youtu.be/UKdQjQX1Pko) by JavaScript Mastery. Many thanks to him for creating such a wonderful, hands-on, end-to-end tutorial.
 
 ## Contact
+
 Created by [Peter Kibuchi](https://www.peterkibuchi.com/).
