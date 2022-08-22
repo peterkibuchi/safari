@@ -15,7 +15,7 @@
 ## General Information
 
 - I undertook this project as a hands-on means of learning how to build complex real world applications.
-- I learnt a lot, including but not limited to: advanced React best practices such as folder & file structure, hooks & refs; how to integrate various APIs to build an app with various functionalities; and how to build beautiful modern UIs with Material UI.
+- I learnt a lot, including but not limited to: advanced React best practices such as folder & file structure, hooks & refs; how to fetch & integrate data from unlimited APIs to build an app with unlimited functionalities; and how to build beautiful, modern UIs with Material UI.
 
 ## Technologies Used
 
