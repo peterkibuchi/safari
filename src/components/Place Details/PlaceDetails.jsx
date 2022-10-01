@@ -13,7 +13,7 @@ import { LocationOn, Phone } from "@mui/icons-material";
 
 function PlaceDetails({ place, selected, refProp }) {
   if (selected)
-    refProp?.current?.scrollIntoView({ behaviour: "smooth", block: "start" });
+    refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   return (
     <Card elevation={6}>

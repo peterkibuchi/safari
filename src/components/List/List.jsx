@@ -111,11 +111,11 @@ function List({
           >
             {places ? (
               places?.map((place, index) => (
-                <Grid item key={index} xs={12}>
+                <Grid item key={index} xs={12} ref={elRefs[index]}>
                   <PlaceDetails
                     place={place}
                     selected={Number(childClicked) === index}
-                    redProp={elRefs[index]}
+                    refProp={elRefs[index]}
                   />
                 </Grid>
               ))

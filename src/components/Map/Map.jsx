@@ -42,7 +42,7 @@ function Map({
         {places?.map((place, index) => (
           <Box
             key={index}
-            lat={Number(place.lattitude)}
+            lat={Number(place.latitude)}
             lng={Number(place.longitude)}
             sx={{
               position: "absolute",
